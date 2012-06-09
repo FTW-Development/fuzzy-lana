@@ -1,11 +1,14 @@
 package com.ftwdev.stuffinc.server;
 
+import java.io.IOException;
+import java.net.ServerSocket;
 import java.net.Socket;
 
 public class StuffIncServer {
     public static void main(String[] args){
 
-        //sockets for accepting connections
+        ServerSocket stuffServer = null;
+		//sockets for accepting connections
         try {
             stuffServer = new ServerSocket(12345);
         }
@@ -19,7 +22,7 @@ public class StuffIncServer {
         }
         catch (IOException e){
             System.out.println("Could not accept client connections");
-            System.ext(-1);
+            System.exit(-1);
         }
     }
 }
