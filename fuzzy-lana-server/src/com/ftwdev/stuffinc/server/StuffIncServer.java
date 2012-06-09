@@ -6,23 +6,20 @@ import java.net.Socket;
 
 public class StuffIncServer {
     public static void main(String[] args){
-
+    
         ServerSocket stuffServer = null;
-		//sockets for accepting connections
+        boolean listening = true;
+    	//sockets for accepting connections
         try {
             stuffServer = new ServerSocket(12345);
-        }
-        catch (IOException e){
+        }  catch (IOException e){
             System.out.println("Could not bind to port 12345");
             System.exit(-1);
         }
         Socket clientSocket = null;
-        try {
-            clientSocket = stuffServer.accept();
-        }
-        catch (IOException e){
-            System.out.println("Could not accept client connections");
-            System.exit(-1);
-        }
+        while(listening)
+        new clientThread(serverSocket.accept()).start();
+
+        serverSocket.close();
     }
 }
