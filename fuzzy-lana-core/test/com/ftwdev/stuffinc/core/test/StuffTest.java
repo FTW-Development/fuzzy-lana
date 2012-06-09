@@ -20,6 +20,9 @@ public class StuffTest {
 			Stuff stuff = stuffs.get(key);
 			System.out.println(stuff.getName());
 			System.out.println("\tType: " + stuff.getType());
+			if(stuff.getEvolveTo() != null && stuff.getEvolveLevel() >= 0) {
+				System.out.println("\tEvolves to " + stuff.getEvolveTo() + " at level " + stuff.getEvolveLevel());
+			}
 			for(String growthKey: stuff.getGrowthStats().keySet()) {
 				int[] range = stuff.getGrowthStats().get(growthKey);
 				System.out.println("\t"+growthKey+": "+range[0]+" to "+range[1]);

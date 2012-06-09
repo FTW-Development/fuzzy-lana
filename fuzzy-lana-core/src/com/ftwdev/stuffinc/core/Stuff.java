@@ -11,13 +11,19 @@ public class Stuff {
 	private static HashMap<String, Stuff> stuffList;
 	private String name;
 	private StuffType type;
+	private int evolveLevel;
+	private String evolveTo;
 	private Map<String, int[]> growthStats;
 	private Map<Integer, Move> moveList;
 	
-	public Stuff(Object name, Object type, Map<String, Object> growths, Object moves) throws MalformedDataException {
+	public Stuff(Object name, Object type, Object evolveAt, Object evolveTo, Map<String, Object> growths, Object moves) throws MalformedDataException {
 		try {
 			this.name = (String) name;
 			this.type = StuffType.valueOf(((String) type).toUpperCase());
+			if(evolveAt != null && evolveTo != null) {
+				this.evolveLevel = Integer.parseInt(evolveAt.toString());
+				this.evolveTo = (String) evolveTo;
+			}
 			this.growthStats = new HashMap<String, int[]>();
 			this.moveList = new HashMap<Integer, Move>();
 			for(String growthType : growths.keySet()) {
@@ -57,7 +63,7 @@ public class Stuff {
 				growths.put("mobility", mapping.get("mobility"));
 				growths.put("soul", mapping.get("soul"));
 				try {
-					Stuff thing = new Stuff(mapping.get("name"), mapping.get("type"), growths, mapping.get("moves"));
+					Stuff thing = new Stuff(mapping.get("name"), mapping.get("type"), mapping.get("evolveAt"), mapping.get("evolveTo"), growths, mapping.get("moves"));
 					Stuff.stuffList.put(thing.name, thing);
 				} catch (MalformedDataException e) {
 					System.out.println("Malformed move data... skipping.");
@@ -80,6 +86,14 @@ public class Stuff {
 
 	public void setType(StuffType type) {
 		this.type = type;
+	}
+	
+	public int getEvolveLevel() {
+		return this.evolveLevel;
+	}
+	
+	public String getEvolveTo() {
+		return this.evolveTo;
 	}
 
 	public static HashMap<String, Stuff> getStuffList() {

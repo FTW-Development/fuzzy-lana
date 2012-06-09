@@ -1,6 +1,8 @@
 stuff:
 - name: stuff1
   type: furniture
+  evolveAt: 32
+  evolveTo: stuff2
   health: 0-3
   force: 0-3
   hardiness: 0-3
