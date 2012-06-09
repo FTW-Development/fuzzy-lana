@@ -19,10 +19,10 @@ public class MoveTest {
 		for(String key : moves.keySet()) {
 			Move move = moves.get(key);
 			System.out.println(move.getName());
-			System.out.println("\tMove Type:" + move.getMoveType());
-			System.out.println("\tStuff Type:" + move.getStuffType());
-			System.out.println("\tSpeed:" + move.getSpeedModifier());
-			System.out.println("\tPower:" + move.getPowerModifier());
+			System.out.println("\tMove Type: " + move.getMoveType());
+			System.out.println("\tStuff Type: " + move.getStuffType());
+			System.out.println("\tSpeed: " + move.getSpeedModifier());
+			System.out.println("\tPower: " + move.getPowerModifier());
 		}
 	}
 

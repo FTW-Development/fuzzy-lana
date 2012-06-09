@@ -1,0 +1,30 @@
+stuff:
+- name: stuff1
+  type: furniture
+  health: 0-3
+  force: 0-3
+  hardiness: 0-3
+  insight: 0-3
+  willpower: 0-3
+  mobility: 0-3
+  soul: 0-3
+  moves:
+  - move1-1
+  - move2-5
+  - move3-9
+  - move4-12
+  
+- name: stuff2
+  type: kitchen
+  health: 1-5
+  force: 1-5
+  hardiness: 1-5
+  insight: 1-5
+  willpower: 1-5
+  mobility: 1-5
+  soul: 1-5
+  moves:
+  - move1-3
+  - move2-5
+  - move3-12
+  - move4-16
