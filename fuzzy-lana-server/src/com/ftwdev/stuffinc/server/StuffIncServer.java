@@ -2,9 +2,27 @@ package com.ftwdev.stuffinc.server;
 
 import java.io.IOException;
 import java.net.ServerSocket;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.ftwdev.stuffinc.core.User;
+
 
 public class StuffIncServer {
     public static void main(String[] args){
+    	
+    	//data
+    	Map<String, User> users = new HashMap<String, User>();
+    	User myUser = new User("testuser");
+    	myUser.setPassword(myUser.hashPassword("testing"));
+    	users.put(myUser.getUsername(), myUser);
+    	
+    	
+    	//controllers
+    	UserController uc = new UserController(users);
+    	
+    	//router
+    	RetardedRouter rr = new RetardedRouter(uc);
     
         ServerSocket stuffServer = null;
         boolean listening = true;
@@ -18,7 +36,7 @@ public class StuffIncServer {
         
         while(listening)
 			try {
-				new clientThread(stuffServer.accept()).start();
+				new clientThread(stuffServer.accept(), rr).start();
 			} catch (IOException e1) {
 	            System.out.println("Could not accept client connection... dumping:");
 				e1.printStackTrace();
