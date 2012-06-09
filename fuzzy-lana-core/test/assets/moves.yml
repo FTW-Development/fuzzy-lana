@@ -1,11 +1,11 @@
 moves:
-- name: someMove
+- name: move1
   moveType: PHYSICAL
   stuffType: FURNITURE
   speed: 1.0
   power: 1.5
   
-- name: someOtherMove
+- name: move2
   moveType: PHYSICAL
   stuffType: FURNITURE
   speed: 1.0

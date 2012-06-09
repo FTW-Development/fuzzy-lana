@@ -18,8 +18,8 @@ public class Move {
 	public Move(Object name, Object moveType, Object stuffType, Object speed, Object power) throws MalformedDataException {
 		try {
 			this.name = (String) name;
-			this.moveType = MoveType.valueOf((String) moveType);
-			this.stuffType = StuffType.valueOf((String) stuffType);
+			this.moveType = MoveType.valueOf(((String) moveType).toUpperCase());
+			this.stuffType = StuffType.valueOf(((String) stuffType).toUpperCase());
 			this.speedModifier = Float.parseFloat(speed.toString());
 			this.powerModifier = Float.parseFloat(power.toString());
 		} catch(Exception e) {
