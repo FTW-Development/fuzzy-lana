@@ -1,0 +1,12 @@
+moves:
+- name: someMove
+  moveType: PHYSICAL
+  stuffType: FURNITURE
+  speed: 1.0
+  power: 1.5
+  
+- name: someOtherMove
+  moveType: PHYSICAL
+  stuffType: FURNITURE
+  speed: 1.0
+  power: 1.5
