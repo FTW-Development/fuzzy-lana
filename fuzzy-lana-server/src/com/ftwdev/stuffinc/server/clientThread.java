@@ -13,25 +13,58 @@ public class clientThread extends Thread {
     }
     
     public void run() {
-    	PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-        BufferedReader in = new BufferedReader(
-                    new InputStreamReader(
-                    socket.getInputStream()));
+    	//readers and writers
+    	PrintWriter out = null;
+		try {
+			out = new PrintWriter(socket.getOutputStream(), true);
+		} catch (IOException e1) {
+            System.out.println("Could not write... dumping:");
+			e1.printStackTrace();
+		}  	
+        BufferedReader in = null;
+		try {
+			in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+		} catch (IOException e) {
+            System.out.println("Could not get input... dumping:");
+			e.printStackTrace();
+		}
  
+		
+		//load protocol
         String inputLine, outputLine;
-        stuffProtocol conversation = new stuffProtocol();
-        outputLine = conversation.processInput(null);
+        WeakSauceProtocol wsp = new WeakSauceProtocol();
+        outputLine = wsp.processInput(null);
         out.println(outputLine);
  
-        while ((inputLine = in.readLine()) != null) {
-        outputLine = conversation.processInput(inputLine);
-        out.println(outputLine);
-        if (outputLine.equals("Bye"))
-            break;
-        }
+        //process messages
+        try {
+			while ((inputLine = in.readLine()) != null) {
+			outputLine = wsp.processInput(inputLine);
+			out.println(outputLine);
+			if (outputLine.equals("Bye"))
+			    break;
+			}
+		} catch (IOException e) {
+            System.out.println("Could not read input... dumping:");
+			e.printStackTrace();
+		}
+       
+        
+        
+        //shut down
         out.close();
-        in.close();
-        socket.close();
+        try {
+			in.close();
+		} catch (IOException e) {
+            System.out.println("Cleaned up messily:");
+			e.printStackTrace();
+		}
+        try {
+			socket.close();
+		} catch (IOException e) {
+            System.out.println("Sockets couldn't close:");
+			e.printStackTrace();
+		}
 
     }
 }
