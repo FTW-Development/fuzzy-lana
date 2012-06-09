@@ -2,7 +2,6 @@ package com.ftwdev.stuffinc.server;
 
 import java.io.IOException;
 import java.net.ServerSocket;
-import java.net.Socket;
 
 public class StuffIncServer {
     public static void main(String[] args){
@@ -16,10 +15,21 @@ public class StuffIncServer {
             System.out.println("Could not bind to port 12345");
             System.exit(-1);
         }
-        Socket clientSocket = null;
+        
         while(listening)
-        new clientThread(serverSocket.accept()).start();
+			try {
+				new clientThread(stuffServer.accept()).start();
+			} catch (IOException e1) {
+	            System.out.println("Could not accept client connection... dumping:");
+				e1.printStackTrace();
+			}
 
-        serverSocket.close();
+        try {
+			stuffServer.close();
+		} catch (IOException e) {
+            System.out.println("Did not shutdown cleanly... dumping:");
+			e.printStackTrace();
+			System.exit(-1);
+		}
     }
 }
