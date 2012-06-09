@@ -13,6 +13,9 @@ public class StuffIncServer {
     	
     	//data
     	Map<String, User> users = new HashMap<String, User>();
+    	User myUser = new User("testuser");
+    	myUser.setPassword(myUser.hashPassword("testing"));
+    	users.put(myUser.getUsername(), myUser);
     	
     	
     	//controllers

@@ -1,7 +1,7 @@
 package com.ftwdev.stuffinc.server;
 
 
-import java.net.*;
+import java.net.Socket;
 import java.io.*;
 
 import com.ftwdev.stuffinc.network.StuffedPacket;
@@ -34,11 +34,12 @@ public class clientThread extends Thread {
     	System.out.println("Accepted connection from: " + this.socket.getInetAddress());
   
         //process messages
-		boolean results = true;
-		while (results) {
+		while (true) {
 			try {
 				StuffedPacket response = rr.processInput((StuffedPacket) in.readObject());
 				out.writeObject(response);
+				if(response.message.equals("Bye"))
+					break;
 				
 			} catch (IOException e) {
 				System.out.println("we weren't able to read or write something");
@@ -47,8 +48,6 @@ public class clientThread extends Thread {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			if (results == false)
-			    break;
 		}
         
         //shut down
