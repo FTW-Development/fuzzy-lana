@@ -1,6 +1,7 @@
 package com.ftwdev.stuffinc.server;
 
 import com.ftwdev.stuffinc.core.User;
+import com.ftwdev.stuffinc.network.StuffedPacket;
 
 public class RetardedRouter {
     private static final int WAITING = 0;

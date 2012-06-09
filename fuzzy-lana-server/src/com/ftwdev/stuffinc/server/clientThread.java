@@ -4,6 +4,8 @@ package com.ftwdev.stuffinc.server;
 import java.net.*;
 import java.io.*;
 
+import com.ftwdev.stuffinc.network.StuffedPacket;
+
 public class clientThread extends Thread {
     private Socket socket = null;
     private ObjectInputStream in = null;
