@@ -1,9 +1,6 @@
 package com.ftwdev.stuffinc.core;
 
-<<<<<<< HEAD
 import java.io.File;
-=======
->>>>>>> branch 'master' of https://github.com/FTW-Development/fuzzy-lana.git
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Random;
