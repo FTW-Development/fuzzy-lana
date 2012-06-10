@@ -1,5 +1,8 @@
 package com.ftwdev.stuffinc.core;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.Random;
 
 public class StuffFactory {
