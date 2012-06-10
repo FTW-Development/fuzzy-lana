@@ -2,16 +2,95 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
-<!-- 
+    android:orientation="vertical"
+    android:background="#444444" >
+
+    <!--
     <menu android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
 	</menu>
- -->
+    -->
 
- <ViewStub
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content" >
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.75" >
 
-</ViewStub>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/imageView1"
+            android:background="#555555"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/leftGuyName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name: " />
+
+            <TextView
+                android:id="@+id/leftGuyHealth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Health: " />
+
+            <TextView
+                android:id="@+id/leftGuyLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Level: " />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/imageView2"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="#555555"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/rightGuyName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name: " />
+
+            <TextView
+                android:id="@+id/rightGuyHealth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Health:" />
+
+            <TextView
+                android:id="@+id/rightGuyLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Level: " />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/leftGuyImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/explosive_soda_can1"
+ />
+
+        <ImageView
+            android:id="@+id/rightGuyImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/explosive_soda_can2" />
+
+    </RelativeLayout>
+
 </LinearLayout>

@@ -1,10 +1,11 @@
 package com.ftwdev.stuffinc.core;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
 import org.yaml.snakeyaml.Yaml;
 
 public class Move {
@@ -27,7 +28,7 @@ public class Move {
 		}
 	}
 	
-	public static void initMoveList(FileInputStream f) throws FileNotFoundException {
+	public static void initMoveList(InputStream f) throws FileNotFoundException {
 		if (Move.moveList == null) {
 			Move.moveList = new HashMap<String, Move>();
 			Yaml yaml = new Yaml();

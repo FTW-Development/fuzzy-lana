@@ -5,51 +5,73 @@
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/title_background2" >
+        android:layout_height="wrap_content" android:background="@drawable/title_background2">
 
-        <Button
-            android:id="@+id/button3"
+        <RelativeLayout
+            android:id="@+id/relativeLayout1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:onClick="gallery"
-            android:text="Gallery" />
+            android:layout_marginBottom="29dp" >
 
-        <Button
-            android:id="@+id/button2"
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="115dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="32dp"
+                android:text="Settings" />
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="115dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="33dp"
+                android:layout_toLeftOf="@+id/button4"
+                android:text="Team" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="115dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="28dp"
+                android:layout_toLeftOf="@+id/button6"
+                android:onClick="gallery"
+                android:text="Gallery" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_above="@+id/relativeLayout1"
             android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:text="Explore" />
+            android:layout_marginBottom="56dp" >
 
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:text="Settings" />
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="115dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="30dp"
+                android:text="Explore" />
 
-        <Button
-            android:id="@+id/button6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:text="Team" />
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="115dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="14dp"
+                android:onClick="battle"
+                android:text="Battle"/>
 
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/button2"
-            android:layout_alignBottom="@+id/button2"
-            android:layout_alignParentRight="true"
-            android:onClick="battle"
-            android:text="Battle" />
+        </RelativeLayout>
 
     </RelativeLayout>
 

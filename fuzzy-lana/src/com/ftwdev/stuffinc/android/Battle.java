@@ -1,15 +1,40 @@
 package com.ftwdev.stuffinc.android;
 
+import java.io.IOException;
+
 import android.app.Activity;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.SubMenu;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.ftwdev.stuffinc.core.Move;
+import com.ftwdev.stuffinc.core.Stuff;
+import com.ftwdev.stuffinc.core.StuffFactory;
+import com.ftwdev.stuffinc.core.Thing;
 
 public class Battle extends Activity {
 	public String[] attacks = new String[4];
 	public String[] team = new String[5];
 	
+	public Thing leftguy;
+	public Thing rightguy;
+		
 	public void onCreate(Bundle savedInstanceState){
+		AssetManager am = getBaseContext().getAssets();
+		try {
+			Move.initMoveList(am.open("Moves.yml"));
+			Stuff.initStuffList(am.open("Stuff.yml"));
+		} catch (IOException e) {
+			System.out.println("poopy");
+			e.printStackTrace();
+		}
+		
+		leftguy = StuffFactory.getWild(1, 1);
+		//rightguy = StuffFactory.getWild(1, 1);
+		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.battle);
     	//MenuInflater inflater = getMenuInflater();
@@ -18,6 +43,22 @@ public class Battle extends Activity {
     	//inflater.inflate(R.menu.battlemenu, menu);
 		setAttacks();
 		setTeam();
+		
+		//Dynamic page setup left guy
+		ImageView left_image = (ImageView) findViewById(R.id.leftGuyImage);
+		TextView left_name = (TextView) findViewById(R.id.leftGuyName);
+		TextView left_level = (TextView) findViewById(R.id.leftGuyLevel);
+		TextView left_health = (TextView) findViewById(R.id.leftGuyHealth);
+		
+		left_image.setImageResource(R.drawable.dual_daisies1);
+		
+		//Dynamic page setup right guy
+		ImageView right_image = (ImageView) findViewById(R.id.rightGuyImage);
+		TextView right_name = (TextView) findViewById(R.id.rightGuyName);
+		TextView right_level = (TextView) findViewById(R.id.rightGuyLevel);
+		TextView right_health = (TextView) findViewById(R.id.rightGuyHealth);
+		
+		right_image.setImageResource(R.drawable.fiery_barbecue_chips2);		
 	}
 	
 	public boolean onPrepareOptionsMenu(Menu menu){

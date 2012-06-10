@@ -1,6 +1,6 @@
 package com.ftwdev.stuffinc.core;
 
-import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -61,7 +61,7 @@ public class Stuff {
 		}
 	}
 
-	public static void initStuffList(FileInputStream f) {
+	public static void initStuffList(InputStream f) {
 		if (stuffList == null) {
 			stuffList = new HashMap<String, Stuff>();
 			Yaml yaml = new Yaml();
