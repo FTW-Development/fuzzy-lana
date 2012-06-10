@@ -839,7 +839,7 @@ stuff:
   - Annoy-40
   - Cause Accident-45
   - Insult-50
-- name: Silly spade
+- name: Silly Spade
   type: TOOLS
   evolveAt: 23
   evolveTo: Serious Shovel
