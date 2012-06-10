@@ -21,6 +21,7 @@ public class Thing {
 	private int mobility;
 	/* awesome attribute */
 	private int soul;
+	private int id;
 	
 	public Thing(Stuff stuff) {
 		this.stuff = stuff;
