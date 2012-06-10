@@ -85,6 +85,10 @@ public class Thing {
 		return soul;
 	}
 
+	public int getEvolveLevel(){
+		return this.stuff.getEvolveLevel();
+	}
+	
 	public Thing(int level) {
 		super();
 		for(int i = 0; i < level; i++) {
@@ -93,6 +97,10 @@ public class Thing {
 	}
 	
 	public void levelUp() {
+		this.exp -= this.level*9000;
+		if (this.exp < 0) 
+			this.exp = 0;
+		
 		this.level++;
 		//TODO need to subtract 1 level worth of exp
 		this.health += levelUpStat(this.stuff.getGrowthStats().get("health"));
@@ -102,6 +110,10 @@ public class Thing {
 		this.willpower += levelUpStat(this.stuff.getGrowthStats().get("willpower"));
 		this.mobility += levelUpStat(this.stuff.getGrowthStats().get("mobility"));
 		this.soul += levelUpStat(this.stuff.getGrowthStats().get("soul"));
+	}
+	
+	public void evolve() {
+		this.stuff = Stuff.getStuffList().get(this.stuff.getEvolveTo());
 	}
 	
 	private int levelUpStat(int[] range) {
