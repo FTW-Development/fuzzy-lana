@@ -14,7 +14,7 @@ public class MoveTest {
 
 	@Test
 	public void test() throws IOException {
-		Move.initMoveList(new FileInputStream("test/assets/moves.yml"));
+		Move.initMoveList(new FileInputStream("test/assets/Moves.yml"));
 		Map<String, Move> moves = Move.getMoveList();
 		for(String key : moves.keySet()) {
 			Move move = moves.get(key);

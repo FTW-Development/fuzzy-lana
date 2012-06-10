@@ -13,7 +13,7 @@ public class Stuff {
 	private StuffType type;
 	private int evolveLevel;
 	private String evolveTo;
-	private Map<String, Integer> startStats;
+	private Map<String, int[]> startStats;
 	private Map<String, int[]> growthStats;
 	private Map<Integer, Move> moveList;
 	
@@ -25,9 +25,11 @@ public class Stuff {
 			this.type = StuffType.valueOf(((String) type).toUpperCase());
 			if(evolveAt != null && evolveTo != null) {
 				this.evolveLevel = Integer.parseInt(evolveAt.toString());
+				System.out.println("\t"+this.evolveLevel);
 				this.evolveTo = (String) evolveTo;
+				System.out.println("\t"+this.evolveTo);
 			}
-			this.startStats = new HashMap<String, Integer>();
+			this.startStats = new HashMap<String, int[]>();
 			this.growthStats = new HashMap<String, int[]>();
 			this.moveList = new HashMap<Integer, Move>();
 			for(String growthType : growths.keySet()) {
@@ -39,8 +41,12 @@ public class Stuff {
 			}
 			for(String startStat : startStats.keySet()) {
 				//System.out.println(startStat + " " + startStats.get(startStat));
-				int value = Integer.parseInt(startStats.get(startStat).toString());
-				this.startStats.put(startStat, value);
+				int[] range = new int[2];
+				String[] split = ((String) startStats.get(startStat)).split("-");
+				range[0] = Integer.parseInt(split[0]);
+				range[1] = Integer.parseInt(split[1]);
+				//int value = Integer.parseInt(startStats.get(startStat).toString());
+				this.startStats.put(startStat, range);
 			}
 			ArrayList moveProgression = (ArrayList) moves;
 			Map<String, Move> allMoves = Move.getMoveList();
@@ -118,7 +124,7 @@ public class Stuff {
 		return stuffList;
 	}
 	
-	public Map<String, Integer> getStartStats() {
+	public Map<String, int[]> getStartStats() {
 		return startStats;
 	}
 	
