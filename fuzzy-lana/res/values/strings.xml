@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="hello">Hello World, StuffInc!</string>
+
     <string name="app_name">StuffInc</string>
+    <string name="back">back</string>
+    
+    <!-- Login strings -->
+    <string name="login">Login</string>
+    <string name="user_login">Username</string>
+    <string name="user_password">Password</string>
+    <string name="signup">Sign Up!</string>
+    
+    <!-- Signup strings -->
+    <string name="signup_email_label">email</string>
+    <string name="signup_username_label">username</string>
+    <string name="signup_password_label">password</string>
+    <string name="signup_password_confirm_label">confirm password</string>
 
 </resources>
