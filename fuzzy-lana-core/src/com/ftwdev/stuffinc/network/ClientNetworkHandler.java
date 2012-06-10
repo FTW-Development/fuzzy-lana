@@ -46,8 +46,8 @@ public class ClientNetworkHandler {
 	
 	public static void main(String[] args) {
 		ClientNetworkHandler cnh = new ClientNetworkHandler("localhost", 12345);
-		User user = new User("user");
-		user.setPassword(user.hashPassword("password"));
+		User user = new User("testuser");
+		user.setPassword(user.hashPassword("testing"));
 		cnh.authenticate(user);
 	}
 }

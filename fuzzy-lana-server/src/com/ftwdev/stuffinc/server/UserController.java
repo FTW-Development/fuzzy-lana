@@ -17,6 +17,7 @@ public class UserController {
 	
 	public StuffedPacket authenticate(User u){
 		User authed = users.get(u.getUsername());
+		System.out.println(authed.getPassword());
 		if (authed.getPassword() == u.getPassword()){
 			return new StuffedPacket("Success", "User", authed);
 		}
