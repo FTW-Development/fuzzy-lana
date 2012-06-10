@@ -1,9 +1,20 @@
 package com.ftwdev.stuffinc.core;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.Random;
 
 public class StuffFactory {
-
+	static 
+	{		
+		try {
+			Move.initMoveList(new FileInputStream("test/assets/Moves.yml"));
+			Stuff.initStuffList(new FileInputStream("test/assets/Stuff.yml"));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	private static final String[] STARTERS = {"Explosive Soda Can", "Playful Pogo", "Three-Legged Stepstool"};
 	private static final String[] BASE = {"Dual Daisies", "Timed-out Meter", "Desk Chair", "Three-Legged Stepstool", "Explosive Soda Can", "Cutthroat Cutlery", "Playful Pogo", "Old Tenspeed", "Hammer", "Rusty Rake", "Silly Spade", "Rex Lunchbox"};
 
