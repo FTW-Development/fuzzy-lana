@@ -36,7 +36,7 @@ public class StuffFactoryTest {
 	public void testGetWild() throws FileNotFoundException {
 //		Move.initMoveList(new FileInputStream("test/assets/Moves.yml"));
 //		Stuff.initStuffList(new FileInputStream("test/assets/Stuff.yml"));
-		Thing starter = StuffFactory.getWild(1, 99);
+		Thing starter = StuffFactory.getWild(1, 20);
 		System.out.println(starter.getName() + " - lvl " + starter.getLevel());
 		System.out.println("\tType: " + starter.getType());
 		System.out.println("\tHealth: "+starter.getHealth());

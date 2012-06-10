@@ -38,7 +38,7 @@ public class StuffFactory {
 		Thing wild = new Thing(stuff);
 		for(int i=0; i<level; i++){
 			wild.levelUp();
-			if (wild.getEvolveLevel() >= wild.getLevel()){
+			if (wild.getEvolveLevel() <= wild.getLevel()){
 				wild.evolve();
 			}
 		}

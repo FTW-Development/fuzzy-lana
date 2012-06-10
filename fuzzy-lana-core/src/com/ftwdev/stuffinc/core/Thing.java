@@ -102,7 +102,6 @@ public class Thing {
 			this.exp = 0;
 		
 		this.level++;
-		//TODO need to subtract 1 level worth of exp
 		this.health += levelUpStat(this.stuff.getGrowthStats().get("health"));
 		this.force += levelUpStat(this.stuff.getGrowthStats().get("force"));
 		this.hardiness += levelUpStat(this.stuff.getGrowthStats().get("hardiness"));
