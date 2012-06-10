@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/fight" android:title="fight"></item>
+    <item android:id="@+id/animal" android:title="animal"></item>
+    <item android:id="@+id/swap" android:title="swap"></item>
+    <item android:id="@+id/fail" android:title="fail"></item>
+</menu>

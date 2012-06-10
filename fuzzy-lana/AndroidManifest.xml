@@ -18,6 +18,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.ftwdev.stuffinc.android.DisplayLoginCredentials" />
+        <activity android:name="com.ftwdev.stuffinc.android.UserLogin" />
+        <activity android:name="com.ftwdev.stuffinc.android.UserSignup" />
+        <activity android:name="com.ftwdev.stuffinc.android.Home" />
+        <activity android:name="com.ftwdev.stuffinc.android.Battle" />
+        <activity android:name="com.ftwdev.stuffinc.android.Gallery" />
     </application>
 
 </manifest>

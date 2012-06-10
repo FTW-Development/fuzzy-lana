@@ -4,6 +4,8 @@
 
     <string name="app_name">StuffInc</string>
     <string name="back">back</string>
+    <string name="skip">skip</string>
+    
     
     <!-- Login strings -->
     <string name="login">Login</string>
