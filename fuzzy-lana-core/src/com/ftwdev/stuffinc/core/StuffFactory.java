@@ -6,6 +6,8 @@ public class StuffFactory {
 
 	private static final String[] STARTERS = {"Explosive Soda Can", "Playful Pogo", "Three-Legged Stepstool"};
 	//private static final String[] STARTERS = {"stuff1", "stuff2"};
+	private static final Random random = new Random();
+	
 	public static Thing getStarter() {
 		Random random = new Random();
 		Stuff stuff = Stuff.getStuffList().get(STARTERS[random.nextInt(STARTERS.length)]);

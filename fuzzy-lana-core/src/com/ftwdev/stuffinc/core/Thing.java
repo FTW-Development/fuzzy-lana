@@ -28,13 +28,13 @@ public class Thing {
 		this.moveSet = new ArrayList<Move>();
 		this.level = 1;
 		this.exp = 0;
-		this.health = this.stuff.getStartStats().get("sHealth");
-		this.force = this.stuff.getStartStats().get("sForce");
-		this.hardiness = this.stuff.getStartStats().get("sHardiness");
-		this.insight = this.stuff.getStartStats().get("sInsight");
-		this.willpower = this.stuff.getStartStats().get("sWillpower");
-		this.mobility = this.stuff.getStartStats().get("sMobility");
-		this.soul = this.stuff.getStartStats().get("sSoul");
+		this.health = this.levelUpStat(stuff.getStartStats().get("sHealth"));
+		this.force = this.levelUpStat(stuff.getStartStats().get("sForce"));
+		this.hardiness = this.levelUpStat(stuff.getStartStats().get("sHardiness"));
+		this.insight = this.levelUpStat(stuff.getStartStats().get("sInsight"));
+		this.willpower = this.levelUpStat(stuff.getStartStats().get("sWillpower"));
+		this.mobility = this.levelUpStat(stuff.getStartStats().get("sMobility"));
+		this.soul = this.levelUpStat(stuff.getStartStats().get("sSoul"));
 	}
 	
 	public ArrayList<Move> getMoveSet() {

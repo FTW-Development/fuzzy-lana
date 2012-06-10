@@ -13,8 +13,8 @@ public class StuffTest {
 
 	@Test
 	public void test() throws FileNotFoundException {
-		Move.initMoveList(new FileInputStream("test/assets/moves.yml"));
-		Stuff.initStuffList(new FileInputStream("test/assets/stuff.yml"));
+		Move.initMoveList(new FileInputStream("test/assets/Moves.yml"));
+		Stuff.initStuffList(new FileInputStream("test/assets/Stuff.yml"));
 		Map<String, Stuff> stuffs = Stuff.getStuffList();
 		for(String key : stuffs.keySet()) {
 			Stuff stuff = stuffs.get(key);
