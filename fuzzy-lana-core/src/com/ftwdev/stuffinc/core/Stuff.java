@@ -25,9 +25,7 @@ public class Stuff {
 			this.type = StuffType.valueOf(((String) type).toUpperCase());
 			if(evolveAt != null && evolveTo != null) {
 				this.evolveLevel = Integer.parseInt(evolveAt.toString());
-				System.out.println("\t"+this.evolveLevel);
 				this.evolveTo = (String) evolveTo;
-				System.out.println("\t"+this.evolveTo);
 			}
 			this.startStats = new HashMap<String, int[]>();
 			this.growthStats = new HashMap<String, int[]>();
