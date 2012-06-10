@@ -10,6 +10,13 @@ stuff:
   willpower: 0-3
   mobility: 0-3
   soul: 0-3
+  sHealth: 1
+  sForce: 3
+  sHardiness: 4
+  sInsight: 2
+  sWillpower: 2
+  sMobility: 2
+  sSoul: 2
   moves:
   - move1-1
   - move2-5
@@ -25,6 +32,13 @@ stuff:
   willpower: 1-5
   mobility: 1-5
   soul: 1-5
+  sHealth: 4
+  sForce: 4
+  sHardiness: 4
+  sInsight: 3
+  sWillpower: 2
+  sMobility: 1
+  sSoul: 1
   moves:
   - move1-3
   - move2-5

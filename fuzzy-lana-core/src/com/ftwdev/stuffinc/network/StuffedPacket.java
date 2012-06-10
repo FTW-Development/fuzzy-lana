@@ -1,7 +1,11 @@
 package com.ftwdev.stuffinc.network;
 
-public class StuffedPacket {
+import java.io.Serializable;
 
+public class StuffedPacket implements Serializable{
+
+	private static final long serialVersionUID = -1008945088441472424L;
+	
 	public String message = null;
 	public String payloadType = null;
 	public Object payload = null;
