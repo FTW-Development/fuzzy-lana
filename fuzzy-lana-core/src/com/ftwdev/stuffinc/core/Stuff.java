@@ -13,10 +13,13 @@ public class Stuff {
 	private StuffType type;
 	private int evolveLevel;
 	private String evolveTo;
+	private Map<String, Integer> startStats;
 	private Map<String, int[]> growthStats;
 	private Map<Integer, Move> moveList;
 	
-	public Stuff(Object name, Object type, Object evolveAt, Object evolveTo, Map<String, Object> growths, Object moves) throws MalformedDataException {
+	public Stuff(Object name, Object type, Object evolveAt, Object evolveTo, Map<String, Object> growths, 
+			Map<String, Object> startStats, Object moves) throws MalformedDataException {
+		
 		try {
 			this.name = (String) name;
 			this.type = StuffType.valueOf(((String) type).toUpperCase());
@@ -24,6 +27,7 @@ public class Stuff {
 				this.evolveLevel = Integer.parseInt(evolveAt.toString());
 				this.evolveTo = (String) evolveTo;
 			}
+			this.startStats = new HashMap<String, Integer>();
 			this.growthStats = new HashMap<String, int[]>();
 			this.moveList = new HashMap<Integer, Move>();
 			for(String growthType : growths.keySet()) {
@@ -32,6 +36,11 @@ public class Stuff {
 				range[0] = Integer.parseInt(split[0]);
 				range[1] = Integer.parseInt(split[1]);
 				this.growthStats.put(growthType, range);
+			}
+			for(String startStat : startStats.keySet()) {
+				//System.out.println(startStat + " " + startStats.get(startStat));
+				int value = Integer.parseInt(startStats.get(startStat).toString());
+				this.startStats.put(startStat, value);
 			}
 			ArrayList moveProgression = (ArrayList) moves;
 			Map<String, Move> allMoves = Move.getMoveList();
@@ -62,8 +71,17 @@ public class Stuff {
 				growths.put("willpower", mapping.get("willpower"));
 				growths.put("mobility", mapping.get("mobility"));
 				growths.put("soul", mapping.get("soul"));
+				Map<String, Object> startStats = new HashMap<String, Object>();
+				startStats.put("sHealth", mapping.get("sHealth"));
+				startStats.put("sForce", mapping.get("sForce"));
+				startStats.put("sHardiness", mapping.get("sHardiness"));
+				startStats.put("sInsight", mapping.get("sInsight"));
+				startStats.put("sWillpower", mapping.get("sWillpower"));
+				startStats.put("sMobility", mapping.get("sMobility"));
+				startStats.put("sSoul", mapping.get("sSoul"));
 				try {
-					Stuff thing = new Stuff(mapping.get("name"), mapping.get("type"), mapping.get("evolveAt"), mapping.get("evolveTo"), growths, mapping.get("moves"));
+					Stuff thing = new Stuff(mapping.get("name"), mapping.get("type"), mapping.get("evolveAt"), 
+							mapping.get("evolveTo"), growths, startStats, mapping.get("moves"));
 					Stuff.stuffList.put(thing.name, thing);
 				} catch (MalformedDataException e) {
 					System.out.println("Malformed move data... skipping.");
@@ -98,6 +116,10 @@ public class Stuff {
 
 	public static HashMap<String, Stuff> getStuffList() {
 		return stuffList;
+	}
+	
+	public Map<String, Integer> getStartStats() {
+		return startStats;
 	}
 	
 	public Map<String, int[]> getGrowthStats() {
