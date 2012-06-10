@@ -18,7 +18,7 @@ public class clientThread extends Thread {
     	this.rr = myRouter;
         try {
             in = new ObjectInputStream(socket.getInputStream());
-            out = new ObjectOutputStream(socket.getOutputStream());
+            //out = new ObjectOutputStream(socket.getOutputStream());
            } catch(Exception e1) {
                try {
                   socket.close();
@@ -34,12 +34,12 @@ public class clientThread extends Thread {
     	System.out.println("Accepted connection from: " + this.socket.getInetAddress());
   
         //process messages
-		while (true) {
+		//while (true) {
 			try {
 				StuffedPacket response = rr.processInput((StuffedPacket) in.readObject());
-				out.writeObject(response);
-				if(response.message.equals("Bye"))
-					break;
+				//out.writeObject(response);
+				//if(response.message.equals("Bye"))
+					//break;
 				
 			} catch (IOException e) {
 				System.out.println("we weren't able to read or write something");
@@ -48,7 +48,7 @@ public class clientThread extends Thread {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}
+		//}
         
         //shut down
         try {
