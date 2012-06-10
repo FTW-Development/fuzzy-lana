@@ -5,6 +5,7 @@ import java.net.ServerSocket;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.ftwdev.stuffinc.core.Thing;
 import com.ftwdev.stuffinc.core.User;
 
 
@@ -17,9 +18,11 @@ public class StuffIncServer {
     	myUser.setPassword(myUser.hashPassword("testing"));
     	users.put(myUser.getUsername(), myUser);
     	
+    	Map<Integer, Thing> alldathings = new HashMap<Integer, Thing>();
+    	
     	
     	//controllers
-    	UserController uc = new UserController(users);
+    	UserController uc = new UserController(users, alldathings);
     	
     	//router
     	RetardedRouter rr = new RetardedRouter(uc);

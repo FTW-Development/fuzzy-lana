@@ -18,6 +18,7 @@ public class Thing {
 	private int mobility;
 	/* awesome attribute */
 	private int soul;
+	private int id;
 	
 	public Thing() {
 		this.moveSet = new Move[4];
