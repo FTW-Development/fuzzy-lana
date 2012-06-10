@@ -5,7 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import com.ftwdev.stuffinc.core.User;
+
+import com.ftwdev.stuffinc.core.*;
 import com.ftwdev.stuffinc.network.StuffedPacket;
 
 import java.io.IOException;
@@ -35,6 +36,7 @@ public class UserLogin extends Activity{
     	
     	User login_user = new User(username);
     	StuffedPacket auth = new StuffedPacket("AUTHENTICATING", "User", login_user);
+    	
     	try {
 			Socket socket = new Socket("10.66.27.113", 12345);
 	    	ObjectInputStream is = new ObjectInputStream(socket.getInputStream());
@@ -59,5 +61,10 @@ public class UserLogin extends Activity{
     public void signUp(View view){
     	Intent signup = new Intent(this, UserSignup.class);
     	startActivity(signup);
+    }
+    
+    public void home(View viw){
+    	Intent home = new Intent(this, Home.class);
+    	startActivity(home);
     }
 }
