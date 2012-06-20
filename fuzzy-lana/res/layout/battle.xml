@@ -3,7 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:background="#444444" >
+    android:background="@drawable/battle_background" >
 
     <!--
     <menu android:layout_width="wrap_content"
@@ -12,18 +12,20 @@
     -->
 
     <RelativeLayout
+        android:id="@+id/battleWindow"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.75" >
 
         <LinearLayout
+            android:id="@+id/leftGuyStats"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_alignRight="@+id/imageView1"
             android:background="#555555"
-            android:orientation="vertical" >
+            android:orientation="vertical" android:padding="5dp">
 
             <TextView
                 android:id="@+id/leftGuyName"
@@ -46,13 +48,14 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/rightGuyStats"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/imageView2"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
             android:background="#555555"
-            android:orientation="vertical" >
+            android:orientation="vertical" android:padding="5dp">
 
             <TextView
                 android:id="@+id/rightGuyName"
@@ -90,6 +93,21 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:src="@drawable/explosive_soda_can2" />
+
+        <LinearLayout
+            android:id="@+id/battleMoveSection"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" >
+        </LinearLayout>
+        
+        <TextView
+            android:id="@+id/battleTextPopup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" android:layout_centerHorizontal="true" android:layout_centerVertical="true" android:background="#000000" android:padding="10dp">
+        </TextView>
 
     </RelativeLayout>
 

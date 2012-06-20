@@ -9,6 +9,7 @@ public class Thing {
 	private int level;
 	private int exp;
 	private int health;
+	private int current_health;
 	/* physical strength */
 	private int force;
 	/* physical defense */
@@ -29,6 +30,7 @@ public class Thing {
 		this.level = 1;
 		this.exp = 0;
 		this.health = this.levelUpStat(stuff.getStartStats().get("sHealth"));
+		this.current_health = this.health;
 		this.force = this.levelUpStat(stuff.getStartStats().get("sForce"));
 		this.hardiness = this.levelUpStat(stuff.getStartStats().get("sHardiness"));
 		this.insight = this.levelUpStat(stuff.getStartStats().get("sInsight"));
@@ -60,6 +62,10 @@ public class Thing {
 	public int getHealth() {
 		return health;
 	}
+	
+	public int getCurrentHealth(){
+		return current_health;
+	}
 
 	public int getForce() {
 		return force;
@@ -87,6 +93,10 @@ public class Thing {
 
 	public int getEvolveLevel(){
 		return this.stuff.getEvolveLevel();
+	}
+	
+	public void setCurrentHealth(int current_health){
+		this.current_health = current_health;
 	}
 	
 	public Thing(int level) {
