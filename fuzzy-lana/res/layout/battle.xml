@@ -23,9 +23,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_alignRight="@+id/imageView1"
+            android:layout_alignRight="@+id/leftGuyImage"
             android:background="#555555"
-            android:orientation="vertical" android:padding="5dp">
+            android:orientation="vertical"
+            android:padding="5dp" >
 
             <TextView
                 android:id="@+id/leftGuyName"
@@ -45,17 +46,24 @@
                 android:layout_height="wrap_content"
                 android:text="Level: " />
 
+            <ProgressBar
+                android:id="@+id/leftGuyHealthBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/rightGuyStats"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/imageView2"
+            android:layout_alignLeft="@+id/rightGuyImage"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
             android:background="#555555"
-            android:orientation="vertical" android:padding="5dp">
+            android:orientation="vertical"
+            android:padding="5dp" >
 
             <TextView
                 android:id="@+id/rightGuyName"
@@ -74,6 +82,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Level: " />
+
+            <ProgressBar
+                android:id="@+id/rightGuyHealthBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
 
@@ -95,7 +109,23 @@
             android:src="@drawable/explosive_soda_can2" />
 
         <LinearLayout
+            android:id="@+id/battleOptionsSection"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" 
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" >
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/battleMoveSection"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" >
+        </LinearLayout>
+        
+        <LinearLayout
+            android:id="@+id/battleAlternatesSection"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
